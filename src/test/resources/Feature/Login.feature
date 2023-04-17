@@ -2,9 +2,9 @@ Feature: Login to NopCommerce
 
   Scenario: Successfully login to application
     Given user launch a application
-    When user enter email address "admin@yourstore.com" and password "admin"
+    When user enter email address and password
     And user click on Login button
-    Then verify user should see Page title "Dashboard / nopCommerce administration"
+    Then verify user should see Page title <PageTitle1>
     When user click on logout link
-    Then verify user should see Page title "Your store. Login"
+    Then verify user should see Page title <PageTitle2>
     And close the browser

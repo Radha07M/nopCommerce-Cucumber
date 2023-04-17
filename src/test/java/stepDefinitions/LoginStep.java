@@ -1,9 +1,13 @@
 package stepDefinitions;
 
+import java.io.IOException;
 import Pages.*;
+import Utilities.Constant;
+import Utilities.PropertyFileReader;
 import io.cucumber.java.en.*;
 
-public class LoginStep {
+public class LoginStep implements Constant{
+	PropertyFileReader prop = new PropertyFileReader();
 	LoginPage objLoginPage=new LoginPage();
 	
 	@Given("user launch a application")
@@ -11,8 +15,10 @@ public class LoginStep {
 		objLoginPage.launchApplication();
 	}
 
-	@When("user enter email address {string} and password {string}")
-	public void enterEmailAndPassword(String email, String password) {
+	@When("user enter email address and password")
+	public void enterEmailAndPassword() throws IOException {
+		String email = prop.getProperties(Constant.APPDATA_PATH,"username");
+		String password = prop.getProperties(Constant.APPDATA_PATH,"password");
 		objLoginPage.enterEmailAndPassword(email,password);
 	}
 
@@ -22,8 +28,9 @@ public class LoginStep {
 	}
 
 	@Then("verify user should see Page title {string}")
-	public void VerifyPageTitle(String title) {
-		
+	public void VerifyPageTitle(String title) throws IOException {
+		String title1 = prop.getProperties(Constant.APPDATA_PATH,title);
+		objLoginPage.VerifyPageTitle(title1);
 	}
 
 	@When("user click on logout link")

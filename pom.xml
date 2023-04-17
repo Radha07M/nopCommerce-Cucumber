@@ -6,6 +6,12 @@
   <name>nopCommernce</name>
   <description>nopCommernce</description>
 	<dependencies>
+		<dependency>
+			<groupId>nopCommerce-Common</groupId>
+			<artifactId>nopCommerce-Common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
 		    <groupId>junit</groupId>

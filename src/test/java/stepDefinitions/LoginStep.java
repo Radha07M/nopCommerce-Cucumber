@@ -52,4 +52,47 @@ public class LoginStep implements Constant{
 	public void CloseBrowser() {
 		objLoginPage.closeBrowser();
 	}
+	
+	@When("user enters email address {string}")
+	public void enterMailAddress(String mailId) {
+		try {
+			mailId = prop.getProperties(Constant.APPDATA_PATH,mailId);
+			objLoginPage.enterMailAddress(mailId);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	@When("user enters password {string}")
+	public void enterPassword(String password) {
+		try {
+			password = prop.getProperties(Constant.APPDATA_PATH,password);
+			objLoginPage.enterPassword(password);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+	
+	@Then("verify user should able to see error message {string}")
+	public void verifyFieldsErrorMsgOnLogin(String msg) {
+		try {
+			msg = prop.getProperties(Constant.ERRORMESSAGE_PATH,msg);
+			objLoginPage.verifyFieldsErrorMsgOnLogin(msg);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
+	
+	@Then("verify user should able to see error summary message {string}")
+	public void verifySummaryErrorMsgOnLogin(String msg) {
+		try {
+			msg = prop.getProperties(Constant.ERRORMESSAGE_PATH,msg);
+			objLoginPage.verifySummaryErrorMsgOnLogin(msg);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+	}
 }

@@ -14,12 +14,12 @@ public class LoginStep implements Constant{
 		objLoginPage.launchApplication();
 	}
 
-	@Given("user enter email address {string} and password {string}")
+	@When("user enter email address {string} and password {string}")
 	public void enterEmailAndPasswordParameters(String email, String password) throws IOException {
 		objLoginPage.enterEmailAndPassword(email,password);
 	}
 	
-	@Given("user enter email address and password")
+	@When("user enter email address and password")
 	public void enterEmailAndPassword() throws IOException {
 		String email = prop.getProperties(Constant.APPDATA_PATH,"username");
 		String password = prop.getProperties(Constant.APPDATA_PATH,"password");
@@ -29,6 +29,11 @@ public class LoginStep implements Constant{
 	@When("user click on Login button")
 	public void clickOnLoginButton() {
 		objLoginPage.clickOnLoginButton();
+	}
+	
+	@Then("verify user should see Page title {string} through parameters")
+	public void VerifyPageTitleParameter(String title) throws IOException {
+		objLoginPage.VerifyPageTitle(title);
 	}
 
 	@Then("verify user should see Page title {string}")

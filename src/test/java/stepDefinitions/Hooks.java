@@ -29,13 +29,13 @@ public class Hooks {
 	@After
 	public void AfterScenarios() throws IOException
 	{
-		killDriverExe();
+		killDriverProcesses();
 	}
 	
-	public void killDriverExe() throws IOException
+	public void killDriverProcesses() throws IOException
 	{
 		Runtime.getRuntime().exec("taskkill /F /IM chromedriver.exe /T");
-		System.out.println("Killed all chromedriver.exe");
+		System.out.println("Closed chromedriver.exe instances");
 	}
 }
 

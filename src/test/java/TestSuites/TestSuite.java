@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 //@RunWith(CucumberWithSerenity.class)
 @CucumberOptions
 (
-		features = {".\\src\\test\\resources\\Feature\\Login.feature"},
+		features = {".\\src\\test\\resources\\Feature\\Catalog_Products.feature"},
 		glue = {"stepDefinitions"},
 		dryRun = false,
 		monochrome = true,

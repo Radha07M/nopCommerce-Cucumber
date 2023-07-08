@@ -95,4 +95,18 @@ public class LoginStep implements Constant{
 			e.printStackTrace();
 		}		
 	}
+	
+	@When("user logged into an application")
+	public void userLoggedIntoApplication(){
+		try {
+			String email = prop.getProperties(Constant.APPDATA_PATH,"username");
+			String password = prop.getProperties(Constant.APPDATA_PATH,"password");
+			objLoginPage.enterEmailAndPassword(email,password);
+			objLoginPage.clickOnLoginButton();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }
